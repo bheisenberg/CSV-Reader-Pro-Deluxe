@@ -1,0 +1,11 @@
+grammar CSV;
+r: NEWLINE* row+ EOF;
+row: STRING+ (NEWLINE+ | EOF);
+STRING: CHAR+ ;
+CHAR: (LOWER | UPPER | NUMBER | WHITESPACE) ;
+LOWER: [a-z] ;
+UPPER: [A-Z] ;
+NUMBER: [0-9] ;
+WHITESPACE: [ \t] ;
+NEWLINE: [\r\n]+ ;
+IGNORE: [,]+ -> skip ;
